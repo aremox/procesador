@@ -1,12 +1,10 @@
 package InterfaceGraficaUsuario;
 
-import ControlServicio.ControlServicioInforme;
+import ControlServicio.ControlServicioGrafica;
 import java.awt.event.ActionEvent;
 import java.beans.PropertyChangeListener;
 import javax.swing.Action;
 import javax.swing.JButton;
-import javax.swing.JLabel;
-import javax.swing.JOptionPane;
 
 
     
@@ -20,29 +18,23 @@ import javax.swing.JOptionPane;
  *
  */
 
-public class ManejadorEventosInforme implements Action {
+public class ManejadorEventosGrafica implements Action {
 
    
     
-    public ManejadorEventosInforme(){
+    public ManejadorEventosGrafica(){
 
     }
     
     @Override
     public void actionPerformed(ActionEvent e) {
         JButton boton = (JButton) e.getSource(); 
-        if ("Ver informe".equals(boton.getText())) {
-            ControlServicioInforme ControlInforme = new ControlServicioInforme();
+        if ("Ver Grafica".equals(boton.getText())) {
+            ControlServicioGrafica ControlGrafica = new ControlServicioGrafica();
              
-                String linea = ControlInforme.DesarrollarServicio();
+                ControlGrafica.DesarrollarServicio();
                 
-                // Opción centrado en el MessageDialog con HTML
-                String message = "<html>"
-                        + "<body>"
-                        +linea
-                        +"</body></html>";
-                JLabel messageLabel = new JLabel(message);
-                JOptionPane.showMessageDialog(null,messageLabel,"INFORME DE PROCESOS       ", JOptionPane.PLAIN_MESSAGE);            
+                          
                
             } 
         }

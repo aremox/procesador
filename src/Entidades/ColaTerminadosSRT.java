@@ -37,4 +37,25 @@ public class ColaTerminadosSRT {
         }
         
     }
+    
+    public String html(){
+        int tam = coleccionElementos.size();
+        String html="<div id=\"tabla\" width='400px' align='center'>"
+                +"<table border=\"1\">"
+               +"<thead><tr>"
+                +"<th width:80px; >NOMBRE</th>"
+                +"<th width:50px; >Tll</th>"
+                +"<th width:50px; >Ts</th>"
+                +"<th width:50px; >Tf</th>"
+                +"<th width:50px; >Tr</th>"
+                +"<th width:50px; >Te</th>"
+                +"<th width:50px; >Tn</th>"
+                +"</tr></thead><tbody>";
+        for (int i = 0; i < tam; i++) {
+           html= html + coleccionElementos.get(i).datoHtml();
+        }
+        html = html + "</tbody></table></div><br><br><br>";
+        return html;
+        
+    }
 }

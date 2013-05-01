@@ -20,9 +20,10 @@ public class ControlServicioInforme {
     
     public String DesarrollarServicio(){
        String html;
-        html = terminadosSJF.html(); 
+        html = "<h1>Algoritmo SJF</h1>"+terminadosSJF.html(); 
+        html =html +"<h1>Algoritmo SRT</h1>"+ terminadosSRT.html(); 
         terminadosSJF.pintar();
-        System.out.println(html);
+        terminadosSRT.pintar();
         return html;
     }
     

@@ -67,7 +67,7 @@ public class ControladorServicioProcesar {
     }
 
 
-    public void DesarrollarServicioSRT() throws CloneNotSupportedException{
+    public void DesarrollarServicioSRT(){
         int ciclosSRT=0;
         ColaPendientes pendientesSRT = new ColaPendientes();
         ColaEjecucion ejecucionSRT = new ColaEjecucion();

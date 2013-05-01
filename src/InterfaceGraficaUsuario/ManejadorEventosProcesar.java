@@ -3,6 +3,8 @@ package InterfaceGraficaUsuario;
 import ControlServicio.ControladorServicioProcesar;
 import java.awt.event.ActionEvent;
 import java.beans.PropertyChangeListener;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.Action;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
@@ -31,6 +33,7 @@ public class ManejadorEventosProcesar implements Action {
             ControladorServicioProcesar controlador = new ControladorServicioProcesar();
             controlador.DesarrollarServicioSJF();
             controlador.DesarrollarServicioSRT();
+           
             JOptionPane.showMessageDialog(null,"Datos Procesados                            ","PROCESAR DATOS", JOptionPane.INFORMATION_MESSAGE);             
            
         }

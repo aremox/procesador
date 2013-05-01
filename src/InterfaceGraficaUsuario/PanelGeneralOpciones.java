@@ -20,6 +20,7 @@ public class PanelGeneralOpciones extends JTabbedPane {
         PanelCargaProcesos tabA = new PanelCargaProcesos(this);
         PanelProcesar tabB = new PanelProcesar(this);
         PanelInforme tabC = new PanelInforme(this);
+        PanelGrafica tabD = new PanelGrafica(this);
                
         tabA.setSize( 100,100);
         this.addTab( "Carga de procesos" , tabA );
@@ -30,6 +31,9 @@ public class PanelGeneralOpciones extends JTabbedPane {
 
         tabC.setSize( 100,100 );
          this.addTab( "Ver Informe" , tabC );
+         
+        tabD.setSize( 100,100 );
+         this.addTab( "Ver Grafica" , tabD );
          
        
          

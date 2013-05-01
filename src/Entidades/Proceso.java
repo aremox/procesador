@@ -59,7 +59,7 @@ public class Proceso {
         return tiempoFinalizacion - llegada;
     }
      public int getTiempoEspera(){
-        return llegada - duracion;
+        return this.getTiempoReal() - duracion;
     }
     public double getTiempoNormalizado(){
         return (this.getTiempoReal()/duracion);
@@ -69,15 +69,16 @@ public class Proceso {
     }
     
     public String datoHtml(){
-       String html = "<div width='400px' height='200px' align='center'>"
-               +"<div style=\"float:right; width:50px;\">"+nombre+"</div>"
-               +"<div style=\"float:right; width:50px;\">"+llegada+"</div>"
-                +"<div style=\"float:right; width:50px;\">"+duracion+"</div>"
-                +"<div style=\"float:right; width:50px;\">"+tiempoFinalizacion+"</div>"
-                +"<div style=\"float:right; width:50px;\">"+this.getTiempoReal()+"</div>"
-                +"<div style=\"float:right; width:50px;\">"+this.getTiempoEspera()+"</div>"
-                +"<div style=\"float:right; width:50px;\">"+this.getTiempoNormalizado()+"</div>"
-               +"</div>";
+    
+       String html = "<tr>"
+               +"<td>"+nombre+"</td>"
+               +"<td>"+llegada+"</td>"
+                +"<td>"+duracion+"</td>"
+                +"<td>"+tiempoFinalizacion+"</td>"
+                +"<td>"+this.getTiempoReal()+"</td>"
+                +"<td>"+this.getTiempoEspera()+"</td>"
+                +"<td>"+this.getTiempoNormalizado()+"</td>"
+               +"</tr>";
         
         
         return html;        
