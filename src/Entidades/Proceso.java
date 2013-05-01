@@ -67,4 +67,19 @@ public class Proceso {
     public void inicializar(){
         servicio = duracion;
     }
+    
+    public String datoHtml(){
+       String html = "<div width='400px' height='200px' align='center'>"
+               +"<div style=\"float:right; width:50px;\">"+nombre+"</div>"
+               +"<div style=\"float:right; width:50px;\">"+llegada+"</div>"
+                +"<div style=\"float:right; width:50px;\">"+duracion+"</div>"
+                +"<div style=\"float:right; width:50px;\">"+tiempoFinalizacion+"</div>"
+                +"<div style=\"float:right; width:50px;\">"+this.getTiempoReal()+"</div>"
+                +"<div style=\"float:right; width:50px;\">"+this.getTiempoEspera()+"</div>"
+                +"<div style=\"float:right; width:50px;\">"+this.getTiempoNormalizado()+"</div>"
+               +"</div>";
+        
+        
+        return html;        
+    }
 }

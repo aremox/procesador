@@ -37,4 +37,23 @@ public class ColaTerminados {
         }
         
     }
+    public String html(){
+        int tam = coleccionElementos.size();
+        String html="<div id=\"tabla\">"
+                +"<div>"
+               +"<div style=\"float:right; width:50px;\">NOMBRE</div>"
+               +"<div style=\"float:right; width:50px;\">Tll</div>"
+                +"<div style=\"float:right; width:50px;\">Ts</div>"
+                +"<div style=\"float:right; width:50px;\">Tf</div>"
+                +"<div style=\"float:right; width:50px;\">Tr</div>"
+                +"<div style=\"float:right; width:50px;\">Te</div>"
+                +"<div style=\"float:right; width:50px;\">Tn</div>"
+               +"</div>";
+        for (int i = 0; i < tam; i++) {
+           html= html + coleccionElementos.get(i).datoHtml();
+        }
+        html = html + "</div>";
+        return html;
+        
+    }
 }
