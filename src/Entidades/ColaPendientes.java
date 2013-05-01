@@ -18,7 +18,7 @@ public class ColaPendientes {
     public void ColaPendientes() {
        
     }
-
+    
     public void addProceso(Proceso pro) {
         coleccionElementos.add(pro);
         ordenar();
@@ -49,6 +49,17 @@ public class ColaPendientes {
         for (int i = 0; i < tam; i++) {
             System.out.println(coleccionElementos.get(i).getNombre());
         }
+        
+    }
+    public Proceso getPrimero(){
+        return coleccionElementos.get(0);                
+    }
+    public void borrarPrimero(){
+       coleccionElementos.removeFirst();                
+    }
+    
+    public int getTamano() {
+        return coleccionElementos.size();
         
     }
 }

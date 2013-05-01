@@ -41,7 +41,7 @@ public class ListaProcesos {
               tiempo= tiempo + coleccionElementos.get(i).getServicio();
              
         } 
-        return tiempo;
+        return tiempo + coleccionElementos.get(0).getLlegada()+1;
        
     }   
     
@@ -55,6 +55,16 @@ public class ListaProcesos {
             }
         }
         return null;
+
+    }
+    
+    public void inicializar(){
+
+        int tam = coleccionElementos.size();
+
+        for (int i = 0; i < tam; i++) {
+            coleccionElementos.get(i).inicializar();
+        }
 
     }
     

@@ -29,7 +29,8 @@ public class ManejadorEventosProcesar implements Action {
         if ("Procesar".equals(boton.getText())) {
  
             ControladorServicioProcesar controlador = new ControladorServicioProcesar();
-            controlador.DesarrollarServicio();
+            controlador.DesarrollarServicioSJF();
+            controlador.DesarrollarServicioSRT();
             JOptionPane.showMessageDialog(null,"Datos Procesados                            ","PROCESAR DATOS", JOptionPane.INFORMATION_MESSAGE);             
            
         }

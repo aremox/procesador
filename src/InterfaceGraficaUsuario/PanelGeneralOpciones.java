@@ -19,7 +19,7 @@ public class PanelGeneralOpciones extends JTabbedPane {
         //Pestaña carga de clientes
         PanelCargaProcesos tabA = new PanelCargaProcesos(this);
         PanelProcesar tabB = new PanelProcesar(this);
-       // PanelCargarVentas tabC = new PanelCargarVentas(this);
+        PanelInforme tabC = new PanelInforme(this);
                
         tabA.setSize( 100,100);
         this.addTab( "Carga de procesos" , tabA );
@@ -27,11 +27,11 @@ public class PanelGeneralOpciones extends JTabbedPane {
 
         tabB.setSize( 100,100 );
          this.addTab( "Procesar" , tabB );
-/*
+
         tabC.setSize( 100,100 );
-         this.addTab( "Carga de ventas" , tabC );
+         this.addTab( "Ver Informe" , tabC );
          
-       */
+       
          
     }
 
