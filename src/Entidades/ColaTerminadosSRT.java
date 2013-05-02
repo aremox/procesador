@@ -58,4 +58,7 @@ public class ColaTerminadosSRT {
         return html;
         
     }
+    public LinkedList getElementos(){
+        return coleccionElementos;
+    }
 }

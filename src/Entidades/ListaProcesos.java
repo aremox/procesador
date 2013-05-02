@@ -32,6 +32,10 @@ public class ListaProcesos {
         coleccionElementos.add(pro);
         
     }
+    public int getTamano() {
+        return coleccionElementos.size();
+        
+    }
     
     public int tiempoTotal(){
        int tam = coleccionElementos.size();
@@ -63,7 +67,17 @@ public class ListaProcesos {
         int tam = coleccionElementos.size();
 
         for (int i = 0; i < tam; i++) {
+          
             coleccionElementos.get(i).inicializar();
+        }
+
+    }
+    public void inicializarGrafica(int tiempo){
+
+        int tam = coleccionElementos.size();
+
+        for (int i = 0; i < tam; i++) {
+            coleccionElementos.get(i).inicializarGrafica(tiempo, i);
         }
 
     }
