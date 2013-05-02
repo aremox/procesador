@@ -4,7 +4,6 @@
  */
 package ControlServicio;
 
-import Entidades.ColaGraficaSJF;
 import Entidades.ColaTerminadosSRT;
 import Entidades.Proceso;
 import java.util.LinkedList;
@@ -12,8 +11,6 @@ import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartFrame;
 import org.jfree.chart.JFreeChart;
 import org.jfree.chart.plot.PlotOrientation;
-import org.jfree.data.xy.IntervalXYDataset;
-import org.jfree.data.xy.XYSeries;
 import org.jfree.data.xy.XYSeriesCollection;
 
 /**
@@ -22,65 +19,23 @@ import org.jfree.data.xy.XYSeriesCollection;
  */
 public class ControlServicioGrafica {
     private XYSeriesCollection data = new XYSeriesCollection();
+    private XYSeriesCollection dataSRT = new XYSeriesCollection();
     public ControlServicioGrafica() {
     }
 
     public void DesarrollarServicio() {
-        /*DefaultCategoryDataset dataset = new DefaultCategoryDataset();
-         dataset.addValue(1.0, "Egresos", "Enero"); 
-         dataset.addValue(3.0, "Egresos", "Febrero"); 
-         dataset.addValue(2.0, "Egresos", "Marzo"); 
-         dataset.addValue(2.0, "Ingresos", "Enero"); 
-         dataset.addValue(3.0, "Ingresos", "Febrero"); 
-         dataset.addValue(4.0, "Ingresos", "Marzo"); 
-         JFreeChart chart = ChartFactory.createBarChart( 
-         "Grafica de barras", // El titulo de la gráfica 
-         "Mes", // Etiqueta de categoria 
-         "Valor", // Etiqueta de valores 
-         dataset, // Datos 
-         PlotOrientation.VERTICAL, // orientacion 
-         true, // Incluye Leyenda 
-         true, // Incluye tooltips 
-         false // URLs? 
-         ); 
-
-         XYSeries series = new XYSeries("Random Data");
-         series.add(0, null);
-         series.add(1, 1);
-         series.add(2, 1);
-         series.add(3, null);
-         series.add(4, null);
-         series.add(5, 1);
-         series.add(6, null);
-         series.add(7, 1);
-         series.add(9, null);
-         XYSeries series2 = new XYSeries("Random Data2");
-         series2.add(0, 2);
-         series2.add(1, 2);
-         series2.add(2, null);
-         series2.add(3, null);
-         series2.add(2, 2);
-         series2.add(5, null);
-         series2.add(6, 2);
-         series2.add(7, null);
-         series2.add(9, 2);
-         XYSeriesCollection data = new XYSeriesCollection(series);
-         data.addSeries(series2);
-         data.getSeriesCount();
-         */
-        ////////////////////////////////////////////////////////
          generarDatos();
         JFreeChart chart = ChartFactory.createXYLineChart(
-                "XY Series Demo",
-                "X",
-                "Y",
+                "Grafica SJF",
+                "Tiempo",
+                "Procesos",
                 data,
                 PlotOrientation.VERTICAL,
                 true,
                 true,
                 false);
-
-        ChartFrame frame = new ChartFrame("Graficador", chart);
+         
+        ChartFrame frame = new ChartFrame("Grafica", chart);
         frame.pack();
         frame.setVisible(true);
     }
@@ -96,5 +51,34 @@ public class ControlServicioGrafica {
             }
         } 
        
+    }
+    public void DesarrollarServicioSRT() {
+         generarDatosSRT();
+        JFreeChart chart = ChartFactory.createXYLineChart(
+                "Grafica SRT",
+                "Tiempo",
+                "Procesos",
+                dataSRT,
+                PlotOrientation.VERTICAL,
+                true,
+                true,
+                false);
+       
+        ChartFrame frame = new ChartFrame("Grafica", chart);
+        frame.pack();
+        frame.setVisible(true);
+    }
+
+    private void generarDatosSRT() {
+        LinkedList terminadosSRT = ColaTerminadosSRT.getInstancia().getElementos();
+         int tam = terminadosSRT.size();
+
+        for (int i = 0; i < tam; i++) {
+            Proceso pro = (Proceso) terminadosSRT.get(i);
+            if(pro.getGraficaSRT()!= null){
+            dataSRT.addSeries(pro.getGraficaSRT());             
+            }
+        } 
+      
     }
 }

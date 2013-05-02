@@ -18,7 +18,9 @@ public class Proceso {
     private int prioridad;
     private int tiempoFinalizacion;
     private XYSeries series_aux;
+    private XYSeries series_auxSRT;
     private int id_grafica;
+    private int id_graficaSRT;
     
     public Proceso(String nom, int lle, int ser, int pri){
         nombre = nom;
@@ -27,7 +29,7 @@ public class Proceso {
         prioridad = pri;
         duracion = ser;
     }
-    public Proceso(String nom, int lle, int ser, int pri, int fin, XYSeries grafica, int id){
+    public Proceso(String nom, int lle, int ser, int pri, int fin, XYSeries grafica, int id, XYSeries grafica2){
         nombre = nom;
         llegada = lle;
         servicio = 0;
@@ -36,7 +38,10 @@ public class Proceso {
         tiempoFinalizacion = fin;
         series_aux = grafica;
         id_grafica = id;
+        series_auxSRT = grafica2;
+        id_graficaSRT = id;
     }
+    
     public int getLlegada(){
         return llegada;        
     }
@@ -109,9 +114,38 @@ public class Proceso {
        series_aux.addOrUpdate((int)valor, (int)id_grafica);
     }
     public XYSeries getGrafica(){
+        
         return series_aux;
     }
     public int getIdGrafica(){
         return id_grafica;
+    }
+    /////////////////////////////////////
+    // Parte de SRT                 /////
+    /////////////////////////////////////
+     private void crearGraficaSRT(){
+        series_auxSRT = new XYSeries(nombre);
+    }
+    public void inicializarGraficaSRT(int tam, int id){
+        crearGraficaSRT();
+        id = id + 1;
+        id_graficaSRT = id;
+        for (int i = 0; i < tam; i++) {
+           series_auxSRT.add(i,null);
+                    
+        } 
+    }
+    public void setGraficaSRT(int valor){
+        if(series_auxSRT.getItemCount()>valor){
+       series_auxSRT.remove(valor);
+        }
+       series_auxSRT.addOrUpdate((int)valor, (int)id_graficaSRT);
+    }
+    public XYSeries getGraficaSRT(){
+        
+        return series_auxSRT;
+    }
+    public int getIdGraficaSRT(){
+        return id_graficaSRT;
     }
 }

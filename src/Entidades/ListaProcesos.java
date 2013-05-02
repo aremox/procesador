@@ -81,5 +81,14 @@ public class ListaProcesos {
         }
 
     }
+    public void inicializarGraficaSRT(int tiempo){
+
+        int tam = coleccionElementos.size();
+
+        for (int i = 0; i < tam; i++) {
+            coleccionElementos.get(i).inicializarGraficaSRT(tiempo, i);
+        }
+
+    }
     
 }

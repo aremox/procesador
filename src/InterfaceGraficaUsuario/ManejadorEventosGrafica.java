@@ -19,7 +19,7 @@ import javax.swing.JButton;
  */
 
 public class ManejadorEventosGrafica implements Action {
-
+ControlServicioGrafica ControlGrafica = new ControlServicioGrafica();
    
     
     public ManejadorEventosGrafica(){
@@ -28,11 +28,20 @@ public class ManejadorEventosGrafica implements Action {
     
     @Override
     public void actionPerformed(ActionEvent e) {
-        JButton boton = (JButton) e.getSource(); 
-        if ("Ver Grafica".equals(boton.getText())) {
-            ControlServicioGrafica ControlGrafica = new ControlServicioGrafica();
+        JButton boton = (JButton) e.getSource();
+        
+        if ("Ver Grafica SJF".equals(boton.getText())) {
+            
              
                 ControlGrafica.DesarrollarServicio();
+                
+                          
+               
+            } 
+        if ("Ver Grafica SRT".equals(boton.getText())) {
+            
+             
+                ControlGrafica.DesarrollarServicioSRT();
                 
                           
                

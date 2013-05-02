@@ -15,7 +15,7 @@ import javax.swing.JPanel;
 public class PanelGrafica extends JPanel{
 
     private JButton botonVerGrafica;
-
+    private JButton botonVerGraficaSRT;
 
     /**
      *
@@ -24,7 +24,8 @@ public class PanelGrafica extends JPanel{
         //Establecer tamaño y otros parámetros
         //Inicializar controles
 
-        botonVerGrafica = new JButton("Ver Grafica");
+        botonVerGrafica = new JButton("Ver Grafica SJF");
+        botonVerGraficaSRT = new JButton("Ver Grafica SRT");
     
         ManejadorEventosGrafica evento = new ManejadorEventosGrafica();
         
@@ -32,6 +33,9 @@ public class PanelGrafica extends JPanel{
         this.add(botonVerGrafica);
         botonVerGrafica.setBounds(290,165,320,30);
         botonVerGrafica.addActionListener(evento);
+        this.add(botonVerGraficaSRT);
+        botonVerGraficaSRT.setBounds(290,265,320,30);
+        botonVerGraficaSRT.addActionListener(evento);
        
     }
 
