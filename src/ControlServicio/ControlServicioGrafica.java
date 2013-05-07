@@ -6,6 +6,7 @@ package ControlServicio;
 
 import Entidades.ColaTerminadosSRT;
 import Entidades.Proceso;
+import java.awt.Color;
 import java.util.LinkedList;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartFrame;

@@ -72,7 +72,7 @@ public class Proceso {
      public int getTiempoEspera(){
         return this.getTiempoReal() - duracion;
     }
-    public double getTiempoNormalizado(){
+    public float getTiempoNormalizado(){
         return (this.getTiempoReal()/duracion);
     }
     public void inicializar(){

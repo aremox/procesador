@@ -33,7 +33,7 @@ public class ColaTerminados {
             System.out.println(coleccionElementos.get(i).getNombre()+"      "
                     +coleccionElementos.get(i).getTiempoFinalizacion()+"    "
                     +coleccionElementos.get(i).getTiempoReal()+"   "
-                    +coleccionElementos.get(i).getTiempoNormalizado());
+                    +Float.toString(coleccionElementos.get(i).getTiempoNormalizado()));
         }
         
     }
@@ -53,8 +53,43 @@ public class ColaTerminados {
         for (int i = 0; i < tam; i++) {
            html= html + coleccionElementos.get(i).datoHtml();
         }
-        html = html + "</tbody></table></div>";
+        html = html + "</tbody></table></div>"
+                +"<br>Media Tr:"+this.getMediaTReal()
+                +"<br>Media Te:"+this.getMediaTEspera()
+                +"<br>Media Tn:"+this.getMediaTNormalizado()
+                +"<br>";
         return html;
         
+    }
+     private float getMediaTReal(){
+        int tam = coleccionElementos.size();
+        float meTiempoReal = 0;
+        for (int i = 0; i < tam; i++) {
+        meTiempoReal= meTiempoReal + coleccionElementos.get(i).getTiempoReal();
+    }
+        
+        meTiempoReal = meTiempoReal/tam;
+       
+        return meTiempoReal;
+    }
+    
+    private float getMediaTEspera(){
+        int tam = coleccionElementos.size();
+        float meTiempo = 0;
+        for (int i = 0; i < tam; i++) {
+        meTiempo= meTiempo + coleccionElementos.get(i).getTiempoEspera();
+    }
+        meTiempo = meTiempo/tam;
+        return meTiempo;
+    }
+    
+    private float getMediaTNormalizado(){
+        int tam = coleccionElementos.size();
+        float meTiempo = 0;
+        for (int i = 0; i < tam; i++) {
+        meTiempo= meTiempo + coleccionElementos.get(i).getTiempoNormalizado();
+    }
+        meTiempo = meTiempo/tam;
+        return meTiempo;
     }
 }
