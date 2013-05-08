@@ -107,12 +107,12 @@ public class Proceso {
         id = id + 1;
         id_grafica = id;
         for (float i = 0; i < tam; i++) {
-           series_aux.add(i/100,null);
+           series_aux.add(i/10,null);
                     
         } 
     }
     public void setGrafica(float valor){
-        valor = valor/100;
+        valor = valor/10;
         if(series_aux.getItemCount()>valor){
        series_aux.remove(valor);
         }
@@ -136,12 +136,12 @@ public class Proceso {
         id = id + 1;
         id_graficaSRT = id;
         for (float i = 0; i < tam; i++) {
-           series_auxSRT.add(i/100,null);
+           series_auxSRT.add(i/10,null);
                     
         } 
     }
     public void setGraficaSRT(float valor){
-        valor = valor/100;
+        valor = valor/10;
         if(series_auxSRT.getItemCount()>valor){
        series_auxSRT.remove(valor);
         }
