@@ -12,6 +12,7 @@ import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartFrame;
 import org.jfree.chart.JFreeChart;
 import org.jfree.chart.plot.PlotOrientation;
+import org.jfree.chart.plot.XYPlot;
 import org.jfree.data.xy.XYSeriesCollection;
 
 /**
@@ -35,7 +36,9 @@ public class ControlServicioGrafica {
                 true,
                 true,
                 false);
-         
+           XYPlot plot = (XYPlot)chart.getPlot();
+    //Color de el fondo del gráfico
+    plot.setBackgroundPaint(Color.BLACK);
         ChartFrame frame = new ChartFrame("Grafica", chart);
         frame.pack();
         frame.setVisible(true);
@@ -64,7 +67,11 @@ public class ControlServicioGrafica {
                 true,
                 true,
                 false);
-       
+      
+    XYPlot plot = (XYPlot)chart.getPlot();
+    //Color de el fondo del gráfico
+    plot.setBackgroundPaint(Color.BLACK);
+   
         ChartFrame frame = new ChartFrame("Grafica", chart);
         frame.pack();
         frame.setVisible(true);
