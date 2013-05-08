@@ -30,7 +30,7 @@ public class ControladorServicioProcesar {
     }
     
     public void DesarrollarServicioSJF(){
-        int ciclos=0;
+        float ciclos=0;
         ColaPendientes pendientes = new ColaPendientes();
         ColaEjecucion ejecucion = new ColaEjecucion();
         //Calculamos el tiempo total que va a tardar el algoritmo
@@ -42,6 +42,7 @@ public class ControladorServicioProcesar {
         procesos.inicializar();
         procesos.inicializarGrafica(ciclos);
         //Empezamos a ejecutar ciclos
+        
         for (int i = 0; i < ciclos; i++){
             //Si el tiempo de llegada es igual ciclo, asignamos el proceso a la cola de pendientes ordenado por prioridad
             if(procesos.getElementoCiclo(i) != null){
@@ -50,7 +51,7 @@ public class ControladorServicioProcesar {
             }
             //si hay algo en la cola de ejecucion lo ejecutamos
              if( ejecucion.tamano() > 0){
-                int restantes = ejecucion.ejecutarCiclo(i);
+                float restantes = ejecucion.ejecutarCiclo(i);
                 ejecucion.getPrimero().setGrafica(i);
                 //Si el tiempo restante es igual a 0 termina el proceso y se añade a la cola de terminados
                 if (restantes == 0){
@@ -76,7 +77,7 @@ public class ControladorServicioProcesar {
 
 
     public void DesarrollarServicioSRT(){
-        int ciclosSRT=0;
+        float ciclosSRT=0;
         ColaPendientes pendientesSRT = new ColaPendientes();
         ColaEjecucion ejecucionSRT = new ColaEjecucion();
         //Calculamos el tiempo total que va a tardar el algoritmo
@@ -110,7 +111,7 @@ public class ControladorServicioProcesar {
                     ejecucionSRT.addProceso(pendientesSRT.getPrimero());
                     pendientesSRT.borrarPrimero();
                 }}
-                int restantes = ejecucionSRT.ejecutarCiclo(i+1);
+                float restantes = ejecucionSRT.ejecutarCiclo(i+1);
                 ejecucionSRT.getPrimero().setGraficaSRT(i);
                 //Si el tiempo restante es igual a 0 termina el proceso y se añade a la cola de terminados
                 if (restantes == 0){

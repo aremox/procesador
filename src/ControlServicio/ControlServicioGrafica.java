@@ -43,7 +43,7 @@ public class ControlServicioGrafica {
 
     private void generarDatos() {
         LinkedList terminados = ColaTerminadosSRT.getInstancia().getElementos();
-         int tam = terminados.size();
+         float tam = terminados.size();
 
         for (int i = 0; i < tam; i++) {
             Proceso pro = (Proceso) terminados.get(i);
@@ -72,7 +72,7 @@ public class ControlServicioGrafica {
 
     private void generarDatosSRT() {
         LinkedList terminadosSRT = ColaTerminadosSRT.getInstancia().getElementos();
-         int tam = terminadosSRT.size();
+         float tam = terminadosSRT.size();
 
         for (int i = 0; i < tam; i++) {
             Proceso pro = (Proceso) terminadosSRT.get(i);

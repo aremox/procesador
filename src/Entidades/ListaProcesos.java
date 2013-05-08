@@ -13,7 +13,7 @@ import java.util.LinkedList;
 public class ListaProcesos {
 
     private LinkedList<Proceso> coleccionElementos;
-    int tiempo=0;
+    float tiempo=0;
     private static ListaProcesos _instancia;
     
     
@@ -32,29 +32,29 @@ public class ListaProcesos {
         coleccionElementos.add(pro);
         
     }
-    public int getTamano() {
+    public float getTamano() {
         return coleccionElementos.size();
         
     }
     
-    public int tiempoTotal(){
-       int tam = coleccionElementos.size();
-
-        for (int i = 0; i < tam; i++) {
+    public float tiempoTotal(){
+       float tam = coleccionElementos.size();
+       int i = 0;
+        while ( i < tam) {
             
               tiempo= tiempo + coleccionElementos.get(i).getServicio();
-             
+            i++; 
         } 
-        return tiempo + coleccionElementos.get(0).getLlegada()+1;
+        return tiempo + coleccionElementos.get(i-1).getLlegada();
        
     }   
     
-    public Proceso getElementoCiclo(int ciclo) {
+    public Proceso getElementoCiclo(float ciclo) {
 
-        int tam = coleccionElementos.size();
+        float tam = coleccionElementos.size();
 
         for (int i = 0; i < tam; i++) {
-            if (ciclo == (coleccionElementos.get(i).getLlegada())) {
+            if (ciclo == coleccionElementos.get(i).getLlegada()) {
                 return coleccionElementos.get(i);
             }
         }
@@ -64,7 +64,7 @@ public class ListaProcesos {
     
     public void inicializar(){
 
-        int tam = coleccionElementos.size();
+        float tam = coleccionElementos.size();
 
         for (int i = 0; i < tam; i++) {
           
@@ -72,18 +72,18 @@ public class ListaProcesos {
         }
 
     }
-    public void inicializarGrafica(int tiempo){
+    public void inicializarGrafica(float tiempo){
 
-        int tam = coleccionElementos.size();
+        float tam = coleccionElementos.size();
 
         for (int i = 0; i < tam; i++) {
             coleccionElementos.get(i).inicializarGrafica(tiempo, i);
         }
 
     }
-    public void inicializarGraficaSRT(int tiempo){
+    public void inicializarGraficaSRT(float tiempo){
 
-        int tam = coleccionElementos.size();
+        float tam = coleccionElementos.size();
 
         for (int i = 0; i < tam; i++) {
             coleccionElementos.get(i).inicializarGraficaSRT(tiempo, i);

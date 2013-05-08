@@ -56,8 +56,8 @@ public class ColaTerminadosSRT {
            html= html + coleccionElementos.get(i).datoHtml();
         }
         html = html + "</tbody></table></div>"
-                +"<br>Media Tr:"+this.getMediaTReal()
-                +"<br>Media Te:"+this.getMediaTEspera()
+                +"<br>Media Tr:"+(this.getMediaTReal()/100)
+                +"<br>Media Te:"+(this.getMediaTEspera()/100)
                 +"<br>Media Tn:"+this.getMediaTNormalizado()
                 +"<br>";
         return html;
@@ -71,12 +71,13 @@ public class ColaTerminadosSRT {
     public float getMediaTReal(){
         int tam = coleccionElementos.size();
         float meTiempoReal = 0;
+        System.out.println(coleccionElementos.get(0).getTiempoReal());
         for (int i = 0; i < tam; i++) {
         meTiempoReal= meTiempoReal + coleccionElementos.get(i).getTiempoReal();
     }
-        System.out.println(meTiempoReal);
+        
         meTiempoReal = meTiempoReal/tam;
-        System.out.println(meTiempoReal);
+        
         return meTiempoReal;
     }
     

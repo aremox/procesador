@@ -24,7 +24,7 @@ public class ColaPendientes {
         ordenar();
     }
     private void ordenar(){
-         int tam = coleccionElementos.size();
+         float tam = coleccionElementos.size();
          Proceso[] arr_pro = coleccionElementos.toArray(new Proceso[0]);
          Proceso pro_aux;
         for (int i = 0; i < tam; i++) {
@@ -45,7 +45,7 @@ public class ColaPendientes {
     }
     
     public void pintar(){
-        int tam = coleccionElementos.size();
+        float tam = coleccionElementos.size();
         for (int i = 0; i < tam; i++) {
             System.out.println(coleccionElementos.get(i).getNombre());
         }
@@ -58,7 +58,7 @@ public class ColaPendientes {
        coleccionElementos.removeFirst();                
     }
     
-    public int getTamano() {
+    public float getTamano() {
         return coleccionElementos.size();
         
     }

@@ -20,10 +20,10 @@ public class ColaEjecucion {
     public void addProceso(Proceso pro) {
         coleccionElementos.add(pro);
     }
-    public int tamano(){
+    public float tamano(){
         return coleccionElementos.size();
     }
-    public int ejecutarCiclo(int ciclo){
+    public float ejecutarCiclo(float ciclo){
         coleccionElementos.get(0).procesarCiclo();
         if(coleccionElementos.get(0).getServicio() == 0){
             coleccionElementos.get(0).setTiempoFinalizacion(ciclo);

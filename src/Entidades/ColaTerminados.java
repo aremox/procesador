@@ -54,8 +54,8 @@ public class ColaTerminados {
            html= html + coleccionElementos.get(i).datoHtml();
         }
         html = html + "</tbody></table></div>"
-                +"<br>Media Tr:"+this.getMediaTReal()
-                +"<br>Media Te:"+this.getMediaTEspera()
+                +"<br>Media Tr:"+(this.getMediaTReal()/100)
+                +"<br>Media Te:"+(this.getMediaTEspera()/100)
                 +"<br>Media Tn:"+this.getMediaTNormalizado()
                 +"<br>";
         return html;

@@ -18,7 +18,8 @@ public class ControlServicioAddProcesos {
     }
     
     public void addProceso(String nombre, String llegada, String servicio, String prioridad){
-        Proceso pro = new Proceso(nombre, Integer.parseInt(llegada), Integer.parseInt(servicio), Integer.parseInt(prioridad));
+        Proceso pro = new Proceso();
+        pro.crearProceso(nombre, Float.parseFloat(llegada), Float.parseFloat(servicio), Float.parseFloat(prioridad));
         ListaProcesos.getInstancia().addProceso(pro);
     }
 }

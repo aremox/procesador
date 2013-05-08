@@ -12,24 +12,20 @@ import org.jfree.data.xy.XYSeries;
  */
 public class Proceso {
     private String nombre;
-    private int llegada;
-    private int servicio;
-    private int duracion;
-    private int prioridad;
-    private int tiempoFinalizacion;
+    private float llegada;
+    private float servicio;
+    private float duracion;
+    private float prioridad;
+    private float tiempoFinalizacion;
     private XYSeries series_aux;
     private XYSeries series_auxSRT;
-    private int id_grafica;
-    private int id_graficaSRT;
+    private float id_grafica;
+    private float id_graficaSRT;
     
-    public Proceso(String nom, int lle, int ser, int pri){
-        nombre = nom;
-        llegada = lle;
-        servicio = ser;
-        prioridad = pri;
-        duracion = ser;
+    public Proceso(){
+        
     }
-    public Proceso(String nom, int lle, int ser, int pri, int fin, XYSeries grafica, int id, XYSeries grafica2){
+    public Proceso(String nom, float lle, float ser, float pri, float fin, XYSeries grafica, float id, XYSeries grafica2){
         nombre = nom;
         llegada = lle;
         servicio = 0;
@@ -41,17 +37,25 @@ public class Proceso {
         series_auxSRT = grafica2;
         id_graficaSRT = id;
     }
+    public strictfp void crearProceso(String nom, float lle, float ser, float pri){
+        nombre = nom;
+        int f = (int)(lle*100);
+        llegada =  f;
+        servicio = ser*100;
+        prioridad = pri*100;
+        duracion = ser*100;
+    }
     
-    public int getLlegada(){
+    public float getLlegada(){
         return llegada;        
     }
-    public int getServicio(){
+    public float getServicio(){
         return servicio;        
     }
-    public int getDuracion(){
+    public float getDuracion(){
         return duracion;        
     }
-    public int getPrioridad(){
+    public float getPrioridad(){
         return prioridad;        
     }
     public String getNombre(){
@@ -60,20 +64,20 @@ public class Proceso {
     public void procesarCiclo(){
         servicio = servicio-1;        
     }
-    public void setTiempoFinalizacion(int fin){
+    public void setTiempoFinalizacion(float fin){
         tiempoFinalizacion = fin;        
     }
-    public int getTiempoFinalizacion(){      
+    public float getTiempoFinalizacion(){      
         return tiempoFinalizacion;
     }
-    public int getTiempoReal(){
+    public float getTiempoReal(){
         return tiempoFinalizacion - llegada;
     }
-     public int getTiempoEspera(){
+     public float getTiempoEspera(){
         return this.getTiempoReal() - duracion;
     }
     public float getTiempoNormalizado(){
-        return (this.getTiempoReal()/duracion);
+        return this.getTiempoReal()/duracion;
     }
     public void inicializar(){
         servicio = duracion;
@@ -83,11 +87,11 @@ public class Proceso {
     
        String html = "<tr>"
                +"<td>"+nombre+"</td>"
-               +"<td>"+llegada+"</td>"
-                +"<td>"+duracion+"</td>"
-                +"<td>"+tiempoFinalizacion+"</td>"
-                +"<td>"+this.getTiempoReal()+"</td>"
-                +"<td>"+this.getTiempoEspera()+"</td>"
+               +"<td>"+(llegada/100)+"</td>"
+                +"<td>"+(duracion/100)+"</td>"
+                +"<td>"+(tiempoFinalizacion/100)+"</td>"
+                +"<td>"+(this.getTiempoReal()/100)+"</td>"
+                +"<td>"+(this.getTiempoEspera()/100)+"</td>"
                 +"<td>"+this.getTiempoNormalizado()+"</td>"
                +"</tr>";
         
@@ -98,16 +102,17 @@ public class Proceso {
     private void crearGrafica(){
         series_aux = new XYSeries(nombre);
     }
-    public void inicializarGrafica(int tam, int id){
+    public void inicializarGrafica(float tam, float id){
         crearGrafica();
         id = id + 1;
         id_grafica = id;
-        for (int i = 0; i < tam; i++) {
-           series_aux.add(i,null);
+        for (float i = 0; i < tam; i++) {
+           series_aux.add(i/100,null);
                     
         } 
     }
-    public void setGrafica(int valor){
+    public void setGrafica(float valor){
+        valor = valor/100;
         if(series_aux.getItemCount()>valor){
        series_aux.remove(valor);
         }
@@ -117,7 +122,7 @@ public class Proceso {
         
         return series_aux;
     }
-    public int getIdGrafica(){
+    public float getIdGrafica(){
         return id_grafica;
     }
     /////////////////////////////////////
@@ -126,16 +131,17 @@ public class Proceso {
      private void crearGraficaSRT(){
         series_auxSRT = new XYSeries(nombre);
     }
-    public void inicializarGraficaSRT(int tam, int id){
+    public void inicializarGraficaSRT(float tam, float id){
         crearGraficaSRT();
         id = id + 1;
         id_graficaSRT = id;
-        for (int i = 0; i < tam; i++) {
-           series_auxSRT.add(i,null);
+        for (float i = 0; i < tam; i++) {
+           series_auxSRT.add(i/100,null);
                     
         } 
     }
-    public void setGraficaSRT(int valor){
+    public void setGraficaSRT(float valor){
+        valor = valor/100;
         if(series_auxSRT.getItemCount()>valor){
        series_auxSRT.remove(valor);
         }
@@ -145,7 +151,7 @@ public class Proceso {
         
         return series_auxSRT;
     }
-    public int getIdGraficaSRT(){
+    public float getIdGraficaSRT(){
         return id_graficaSRT;
     }
 }
