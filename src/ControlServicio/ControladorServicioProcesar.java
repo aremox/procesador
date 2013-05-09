@@ -49,7 +49,7 @@ public class ControladorServicioProcesar {
                 Proceso pro = procesos.getElementoCiclo(i);
                 pendientes.addProceso(pro);
             }
-            //si hay algo en la cola de ejecucion lo ejecutamos
+            //si hay algo en la cola de ejecucion lo ejecutamos y le indicamos al objeto que en ese punto hay grafica
              if( ejecucion.tamano() > 0){
                 float restantes = ejecucion.ejecutarCiclo(i);
                 ejecucion.getPrimero().setGrafica(i);
@@ -103,7 +103,7 @@ public class ControladorServicioProcesar {
             if( ejecucionSRT.tamano() > 0){
                 if(pendientesSRT.getTamano() > 0){
                     //Si la prioridad del que se ejecuta es menor que la de algun proceso de la cola pendientes
-                    //se mana el proceso en ejecucion a la cola de pendientes y se empeza a ejecutar el de mayor prioridad
+                    //se manda el proceso en ejecucion a la cola de pendientes y se empieza a ejecutar el de mayor prioridad
                 if(ejecucionSRT.getPrimero().getPrioridad() > pendientesSRT.getPrimero().getPrioridad()){
                     ejecucionSRT.getPrimero().setGraficaSRT(i);
                     pendientesSRT.addProceso(ejecucionSRT.getPrimero());
@@ -114,6 +114,7 @@ public class ControladorServicioProcesar {
                 float restantes = ejecucionSRT.ejecutarCiclo(i+1);
                 ejecucionSRT.getPrimero().setGraficaSRT(i);
                 //Si el tiempo restante es igual a 0 termina el proceso y se añade a la cola de terminados
+                //Le indicamos al objeto que en ese punto hay grafica
                 if (restantes == 0){
                   ejecucionSRT.getPrimero().setGraficaSRT(i+1);
                   Proceso pro = new Proceso(ejecucionSRT.getPrimero().getNombre(),ejecucionSRT.getPrimero().getLlegada(),ejecucionSRT.getPrimero().getDuracion(),ejecucionSRT.getPrimero().getPrioridad(),ejecucionSRT.getPrimero().getTiempoFinalizacion(),ejecucionSRT.getPrimero().getGrafica(),ejecucionSRT.getPrimero().getIdGraficaSRT(),ejecucionSRT.getPrimero().getGraficaSRT());
@@ -125,8 +126,7 @@ public class ControladorServicioProcesar {
            
             
         }
-        //terminadosSRT.pintar(); 
-        //terminadosSJF.pintar();
+        
     }
 
 }
