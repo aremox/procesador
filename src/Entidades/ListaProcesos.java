@@ -45,7 +45,7 @@ public class ListaProcesos {
               tiempo= tiempo + coleccionElementos.get(i).getServicio();
             i++; 
         } 
-        return tiempo + coleccionElementos.get(i-1).getLlegada();
+        return tiempo + coleccionElementos.get(i-1).getLlegada() + 3;
        
     }   
     

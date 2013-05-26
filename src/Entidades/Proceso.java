@@ -39,11 +39,10 @@ public class Proceso {
     }
     public strictfp void crearProceso(String nom, float lle, float ser, float pri){
         nombre = nom;
-        int f = (int)(lle*100);
-        llegada =  f;
-        servicio = ser*100;
-        prioridad = pri*100;
-        duracion = ser*100;
+        llegada =  (float)Math.round(lle*100);
+        servicio = (float)Math.round(ser*100);
+        prioridad = (float)Math.round(pri*100);
+        duracion = (float)Math.round(ser*100);
     }
     
     public float getLlegada(){
